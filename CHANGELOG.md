@@ -33,6 +33,12 @@ Changelog entries are classified using the following labels _(from [keep-a-chang
 </details>
 
 
+## [forked-2.0.0] - 2022-02-02
+
+**Changed**
+
+- Added skipping line comments for Style boxes. Now when you try to strip combined code (e.g. JavaScript + CSS in HTML) double slash will be ignored inside `<style>` tag.
+
 ## [2.0.0] - 2019-09-14
 
 **Changed**
