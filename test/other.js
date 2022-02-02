@@ -144,4 +144,32 @@ describe('other languages', () => {
     const actual = strip(input, { language: name });
     assert.strictEqual(actual, output);
   });
+
+  it('should strip combined JavaScript + CSS code: simple', () => {
+    const input = read(fixture('js-and-css-in-html-1.html'));
+    const output = read(expected('js-and-css-in-html-1.html'));
+    const actual = strip(input);
+    assert.strictEqual(actual, output);
+  });
+
+  it('should strip combined JavaScript + CSS code: Style block with attributes', () => {
+    const input = read(fixture('js-and-css-in-html-2.html'));
+    const output = read(expected('js-and-css-in-html-2.html'));
+    const actual = strip(input);
+    assert.strictEqual(actual, output);
+  });
+
+  it('should strip combined JavaScript + CSS code: skipping line comments in CSS', () => {
+    const input = read(fixture('js-and-css-in-html-3.html'));
+    const output = read(expected('js-and-css-in-html-3.html'));
+    const actual = strip(input);
+    assert.strictEqual(actual, output);
+  });
+
+  it('should leave combined JavaScript + CSS code without comments', () => {
+    const input = read(fixture('js-and-css-in-html-4.html'));
+    const output = input;
+    const actual = strip(input);
+    assert.strictEqual(actual, output);
+  });
 });
